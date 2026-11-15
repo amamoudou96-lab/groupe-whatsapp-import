@@ -43,7 +43,9 @@
   }
   .indice { font-weight: 800; color: var(--navy); margin-bottom: 8px; animation: entree3d .7s cubic-bezier(.2,.7,.3,1.15) .4s backwards, rebond 1.2s ease-in-out 1.2s infinite; }
   @media (prefers-reduced-motion: reduce) {
-    .btn-groupe, .indice, .logo-carte, .logo-carte img, .badge, h1, .sous-titre, .rassure, .avantages, .pied, .marcheur, .jambe-a, .jambe-b, .buste, .porte, .route, .anneau { animation: none !important; }
+    .btn-groupe, .indice, .logo-carte, .logo-carte img, .badge, h1, .sous-titre, .rassure, .avantages, .pied, .marcheur, .jambe-a, .jambe-b, .buste, .porte, .route, .anneau, .acte-1, .acte-2, .titre-change, .titre-fournisseurs, .legende-change, .legende-fournisseurs, .groupe-change, .groupe-fournisseurs, .fleche-echange, .billet-f, .billet-n, .marche, .carton-haut { animation: none !important; }
+    .acte-2 { position: static; }
+    .acte-2 h2.titre-fournisseurs, .acte-2 .legende-fournisseurs { position: static; }
     .forme { display: none; }
   }
   .btn-groupe:active { transform: translate(2px,2px); box-shadow: 3px 3px 0 #017548; }
@@ -100,6 +102,29 @@
   .anneau { transform-box: fill-box; transform-origin: center; opacity: 0; animation: pulse-point 2s ease-out infinite; }
   .anneau.d2 { animation-delay: .5s; } .anneau.d3 { animation-delay: 1s; } .anneau.d4 { animation-delay: 1.5s; }
   @keyframes pulse-point { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(2.4); opacity: 0; } }
+  .scene { position: relative; }
+  .acte-1 { animation: acte1 20s linear infinite; }
+  .acte-2 { position: absolute; inset: 18px 16px 14px; animation: acte2 20s linear infinite; }
+  @keyframes acte1 { 0%, 36% { opacity: 1; } 40%, 96% { opacity: 0; } 100% { opacity: 1; } }
+  @keyframes acte2 { 0%, 36% { opacity: 0; } 40%, 96% { opacity: 1; } 100% { opacity: 0; } }
+  .acte-2 h2.titre-fournisseurs { position: absolute; top: 0; left: 0; right: 0; }
+  .acte-2 .legende-fournisseurs { position: absolute; bottom: 0; left: 0; right: 0; }
+  .titre-change, .legende-change { animation: beat1 20s linear infinite; }
+  .titre-fournisseurs, .legende-fournisseurs { animation: beat2 20s linear infinite; }
+  @keyframes beat1 { 0%, 39% { opacity: 0; } 40%, 56% { opacity: 1; } 60%, 100% { opacity: 0; } }
+  @keyframes beat2 { 0%, 56% { opacity: 0; } 60%, 96% { opacity: 1; } 100% { opacity: 0; } }
+  .groupe-change { animation: beat1 20s linear infinite; }
+  .groupe-fournisseurs { animation: beat2 20s linear infinite; }
+  .fleche-echange { animation: glisse 1s ease-in-out infinite alternate; }
+  @keyframes glisse { from { transform: translateX(-6px); } to { transform: translateX(6px); } }
+  .billet-f { animation: echange-f 2.4s ease-in-out infinite alternate; }
+  .billet-n { animation: echange-n 2.4s ease-in-out infinite alternate; }
+  @keyframes echange-f { from { transform: translate(178px, 214px) rotate(-4deg); } to { transform: translate(258px, 214px) rotate(-4deg); } }
+  @keyframes echange-n { from { transform: translate(258px, 240px) rotate(4deg); } to { transform: translate(178px, 240px) rotate(4deg); } }
+  .carton-haut { animation: bob-carton 2.4s ease-in-out infinite; }
+  @keyframes bob-carton { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  .marche { transform-box: fill-box; transform-origin: center; animation: pop-marche 20s linear infinite; }
+  @keyframes pop-marche { 0%, 59% { opacity: 0; transform: scale(.7); } 61%, 100% { opacity: 1; transform: scale(1); } }
 </style>
 </head>
 <body>
@@ -120,6 +145,8 @@
     <p class="rassure">Gratuit · Aucun formulaire · Tu peux quitter le groupe quand tu veux</p>
 
 <div class="scene">
+  <div class="acte acte-1">
+
   <h2>Du Nigeria vers l'Afrique francophone</h2>
   <svg viewBox="0 0 480 300" role="img" aria-label="Un logisticien marche du Nigeria vers le Cameroun, la Côte d'Ivoire, le Gabon et le Burkina Faso">
     <!-- sol -->
@@ -187,6 +214,113 @@
     </g>
   </svg>
   <p class="scene-legende">De Lagos, tes colis partent vers le Cameroun, la Côte d'Ivoire, le Gabon et le Burkina Faso.</p>
+  </div>
+<div class="acte acte-2">
+  <h2 class="titre-change">Change de monnaie au meilleur taux</h2>
+  <h2 class="titre-fournisseurs">Des fournisseurs fiables au Nigeria</h2>
+  <svg viewBox="0 0 480 300" role="img" aria-label="Change de monnaie au meilleur taux, puis fournisseurs fiables au Nigeria">
+    <rect x="0" y="272" width="480" height="28" fill="#EAF7EF"/>
+    <line x1="0" y1="272" x2="480" y2="272" stroke="#D9F5E8" stroke-width="2"/>
+        <g class="groupe-change">
+      <g class="fleche-echange" stroke="#16D64B" stroke-width="3" stroke-linecap="round" fill="none">
+        <line x1="216" y1="110" x2="264" y2="110"/>
+        <polyline points="256,104 266,110 256,116"/>
+        <line x1="264" y1="126" x2="216" y2="126"/>
+        <polyline points="224,120 214,126 224,132"/>
+      </g>
+      <g transform="translate(130,272)">
+        <ellipse cx="0" cy="0" rx="16" ry="3" fill="rgba(2,11,80,.15)"/>
+        <rect x="-9" y="-24" width="7" height="24" rx="3" fill="#020B50"/>
+        <rect x="2" y="-24" width="7" height="24" rx="3" fill="#0A1445"/>
+        <rect x="-11" y="-52" width="22" height="29" rx="7" fill="#16D64B"/>
+        <line x1="-8" y1="-46" x2="-24" y2="-34" stroke="#16D64B" stroke-width="5" stroke-linecap="round"/>
+        <line x1="8" y1="-46" x2="34" y2="-38" stroke="#16D64B" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="0" cy="-61" r="8" fill="#E8B48C"/>
+        <path d="M -8 -61 A 8 8 0 0 1 8 -61 Z" fill="#020B50"/>
+        <rect x="6" y="-63" width="9" height="3.5" rx="1.75" fill="#020B50"/>
+        <circle cx="4" cy="-60" r="1" fill="#0A1445"/>
+      </g>
+      <g transform="translate(350,272) scale(-1,1)">
+        <ellipse cx="0" cy="0" rx="16" ry="3" fill="rgba(2,11,80,.15)"/>
+        <rect x="-9" y="-24" width="7" height="24" rx="3" fill="#020B50"/>
+        <rect x="2" y="-24" width="7" height="24" rx="3" fill="#0A1445"/>
+        <rect x="-11" y="-52" width="22" height="29" rx="7" fill="#1E63E9"/>
+        <line x1="-8" y1="-46" x2="-24" y2="-34" stroke="#1E63E9" stroke-width="5" stroke-linecap="round"/>
+        <line x1="8" y1="-46" x2="34" y2="-38" stroke="#1E63E9" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="0" cy="-61" r="8" fill="#E8B48C"/>
+        <path d="M -8 -61 A 8 8 0 0 1 8 -61 Z" fill="#020B50"/>
+        <rect x="6" y="-63" width="9" height="3.5" rx="1.75" fill="#020B50"/>
+        <circle cx="4" cy="-60" r="1" fill="#0A1445"/>
+      </g>
+      <g class="billet-f"><rect x="0" y="0" width="42" height="22" rx="3" fill="#ffffff" stroke="#020B50" stroke-width="2"/><text x="21" y="15" text-anchor="middle" font-size="9" font-weight="800" fill="#020B50">F CFA</text></g>
+      <g class="billet-n"><rect x="0" y="0" width="42" height="22" rx="3" fill="#16D64B" stroke="#017548" stroke-width="2"/><text x="21" y="15" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">₦</text></g>
+    </g>
+    <g class="groupe-fournisseurs">
+      <g class="marche">
+        <rect x="20" y="96" width="105" height="40" rx="20" fill="#ffffff" stroke="#020B50" stroke-width="2"/>
+        <text x="72" y="122" text-anchor="middle" font-size="14" font-weight="800" fill="#020B50">Lagos</text>
+        <circle cx="118" cy="100" r="9" fill="#16D64B" stroke="#ffffff" stroke-width="2"/>
+        <path d="M 114 100 l 3 3 l 5 -6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="marche" style="animation-delay: 2s">
+        <rect x="135" y="96" width="105" height="40" rx="20" fill="#ffffff" stroke="#020B50" stroke-width="2"/>
+        <text x="187" y="122" text-anchor="middle" font-size="14" font-weight="800" fill="#020B50">Kano</text>
+        <circle cx="233" cy="100" r="9" fill="#16D64B" stroke="#ffffff" stroke-width="2"/>
+        <path d="M 229 100 l 3 3 l 5 -6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="marche" style="animation-delay: 4s">
+        <rect x="250" y="96" width="105" height="40" rx="20" fill="#ffffff" stroke="#020B50" stroke-width="2"/>
+        <text x="302" y="122" text-anchor="middle" font-size="14" font-weight="800" fill="#020B50">Aba</text>
+        <circle cx="348" cy="100" r="9" fill="#16D64B" stroke="#ffffff" stroke-width="2"/>
+        <path d="M 344 100 l 3 3 l 5 -6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="marche" style="animation-delay: 6s">
+        <rect x="365" y="96" width="105" height="40" rx="20" fill="#ffffff" stroke="#020B50" stroke-width="2"/>
+        <text x="417" y="122" text-anchor="middle" font-size="14" font-weight="800" fill="#020B50">Onitsha</text>
+        <circle cx="463" cy="100" r="9" fill="#16D64B" stroke="#ffffff" stroke-width="2"/>
+        <path d="M 459 100 l 3 3 l 5 -6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g transform="translate(140,272)">
+        <ellipse cx="0" cy="0" rx="16" ry="3" fill="rgba(2,11,80,.15)"/>
+        <rect x="-9" y="-24" width="7" height="24" rx="3" fill="#020B50"/>
+        <rect x="2" y="-24" width="7" height="24" rx="3" fill="#0A1445"/>
+        <rect x="-11" y="-52" width="22" height="29" rx="7" fill="#16D64B"/>
+        <line x1="-8" y1="-46" x2="-24" y2="-34" stroke="#16D64B" stroke-width="5" stroke-linecap="round"/>
+        <line x1="8" y1="-46" x2="32" y2="-68" stroke="#16D64B" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="0" cy="-61" r="8" fill="#E8B48C"/>
+        <path d="M -8 -61 A 8 8 0 0 1 8 -61 Z" fill="#020B50"/>
+        <rect x="6" y="-63" width="9" height="3.5" rx="1.75" fill="#020B50"/>
+        <circle cx="4" cy="-60" r="1" fill="#0A1445"/>
+      </g>
+      <g>
+        <rect x="290" y="228" width="58" height="44" rx="3" fill="#C98A4B"/>
+        <rect x="316" y="228" width="5" height="44" fill="#A96F35"/>
+        <rect x="296" y="238" width="16" height="10" fill="#ffffff"/>
+        <text x="304" y="246" text-anchor="middle" font-size="7" font-weight="800" fill="#020B50">NG</text>
+        <circle cx="342" cy="232" r="10" fill="#16D64B" stroke="#ffffff" stroke-width="2"/>
+        <path d="M 337 232 l 3.5 3.5 l 6 -7" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <rect x="352" y="228" width="58" height="44" rx="3" fill="#C98A4B"/>
+        <rect x="378" y="228" width="5" height="44" fill="#A96F35"/>
+        <rect x="358" y="238" width="16" height="10" fill="#ffffff"/>
+        <text x="366" y="246" text-anchor="middle" font-size="7" font-weight="800" fill="#020B50">NG</text>
+        <circle cx="404" cy="232" r="10" fill="#16D64B" stroke="#ffffff" stroke-width="2"/>
+        <path d="M 399 232 l 3.5 3.5 l 6 -7" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="carton-haut">
+        <rect x="321" y="184" width="58" height="44" rx="3" fill="#C98A4B"/>
+        <rect x="347" y="184" width="5" height="44" fill="#A96F35"/>
+        <rect x="327" y="194" width="16" height="10" fill="#ffffff"/>
+        <text x="335" y="202" text-anchor="middle" font-size="7" font-weight="800" fill="#020B50">NG</text>
+        <circle cx="373" cy="188" r="10" fill="#16D64B" stroke="#ffffff" stroke-width="2"/>
+        <path d="M 368 188 l 3.5 3.5 l 6 -7" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </svg>
+  <p class="scene-legende legende-change">Ton argent change au meilleur taux, sans mauvaise surprise.</p>
+  <p class="scene-legende legende-fournisseurs">Lagos, Kano, Aba, Onitsha : tes fournisseurs sont vérifiés avant que tu paies.</p>
+</div>
 </div>
 
 <div class="avantages">
