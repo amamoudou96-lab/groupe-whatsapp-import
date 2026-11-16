@@ -61,7 +61,7 @@ src="https://www.facebook.com/tr?id=1828137934892724&ev=PageView&noscript=1"
   }
   .indice { font-weight: 800; color: var(--navy); margin-bottom: 8px; animation: entree3d .7s cubic-bezier(.2,.7,.3,1.15) .4s backwards, rebond 1.2s ease-in-out 1.2s infinite; }
   @media (prefers-reduced-motion: reduce) {
-    .btn-groupe, .indice, .logo-carte, .logo-carte img, .badge, h1, .sous-titre, .rassure, .avantages, .pied, .camion, .chargement, .route, .anneau, .carton-volant, .acte-1, .acte-2, .titre-change, .titre-fournisseurs, .legende-change, .legende-fournisseurs, .groupe-change, .groupe-fournisseurs, .fleche-echange, .billet-f, .billet-n, .marche, .carton-haut { animation: none !important; }
+    .btn-groupe, .indice, .logo-carte, .logo-carte img, .badge, h1, .sous-titre, .rassure, .avantages, .pied, .drapeaux, .camion, .chargement, .route, .anneau, .carton-volant, .acte-1, .acte-2, .titre-change, .titre-fournisseurs, .legende-change, .legende-fournisseurs, .groupe-change, .groupe-fournisseurs, .fleche-echange, .billet-f, .billet-n, .marche, .carton-haut { animation: none !important; }
     .acte-2 { position: static; }
     .acte-2 h2.titre-fournisseurs, .acte-2 .legende-fournisseurs { position: static; }
     .forme { display: none; }
@@ -105,6 +105,13 @@ src="https://www.facebook.com/tr?id=1828137934892724&ev=PageView&noscript=1"
   .scene svg { width: 100%; height: auto; display: block; }
   .scene svg text { font-family: "Nunito Sans", sans-serif; }
   .scene-legende { text-align: center; color: var(--gris); font-weight: 600; font-size: .9rem; margin: 10px 0 0; }
+  .drapeaux { background: #ffffff; border: 2px solid var(--navy); border-radius: var(--rayon); box-shadow: 6px 6px 0 rgba(2,11,80,.15); padding: 16px 14px 18px; margin-bottom: 22px; animation: entree3d .7s cubic-bezier(.2,.7,.3,1.15) .6s backwards; }
+  .drapeaux-titre { font-family: "Baloo 2", sans-serif; color: var(--navy); font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; }
+  .drapeaux-liste { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .drapeau { display: flex; flex-direction: column; align-items: center; gap: 1px; background: var(--creme); border: 1.5px solid var(--bord); border-radius: 16px; padding: 10px 12px 8px; min-width: 84px; }
+  .drapeau-icone { font-size: 1.9rem; line-height: 1.2; }
+  .drapeau-nom { font-weight: 800; color: var(--navy); font-size: .85rem; }
+  .drapeau-monnaie { font-weight: 700; color: var(--gris); font-size: .75rem; }
   .camion { animation: conduite 20s linear infinite; }
   @keyframes conduite { 0% { transform: translate(130px, 248px); opacity: 0; } 2% { opacity: 1; } 25% { transform: translate(130px, 248px); opacity: 1; } 35% { transform: translate(240px, 248px); opacity: 1; } 42%, 100% { transform: translate(240px, 248px); opacity: 0; } }
   .carton-volant { }
@@ -337,6 +344,17 @@ src="https://www.facebook.com/tr?id=1828137934892724&ev=PageView&noscript=1"
     <p class="indice">👆 Clique ici pour rejoindre le groupe</p>
     <a class="btn-groupe" href="https://chat.whatsapp.com/BKwYxOpKTN58Hs9QoaP3I0">💬 Rejoindre le groupe WhatsApp →</a>
     <p class="rassure">Gratuit · Aucun formulaire · Tu peux quitter le groupe quand tu veux</p>
+
+<div class="drapeaux">
+  <p class="drapeaux-titre">Nous livrons dans ces pays</p>
+  <div class="drapeaux-liste">
+    <span class="drapeau"><span class="drapeau-icone">🇳🇬</span><span class="drapeau-nom">Nigeria</span><span class="drapeau-monnaie">Naira (₦)</span></span>
+    <span class="drapeau"><span class="drapeau-icone">🇨🇲</span><span class="drapeau-nom">Cameroun</span><span class="drapeau-monnaie">F CFA</span></span>
+    <span class="drapeau"><span class="drapeau-icone">🇨🇮</span><span class="drapeau-nom">Côte d'Ivoire</span><span class="drapeau-monnaie">F CFA</span></span>
+    <span class="drapeau"><span class="drapeau-icone">🇬🇦</span><span class="drapeau-nom">Gabon</span><span class="drapeau-monnaie">F CFA</span></span>
+    <span class="drapeau"><span class="drapeau-icone">🇧🇫</span><span class="drapeau-nom">Burkina Faso</span><span class="drapeau-monnaie">F CFA</span></span>
+  </div>
+</div>
 
 <div class="avantages">
       <h2>Dans le groupe, tu trouves :</h2>
